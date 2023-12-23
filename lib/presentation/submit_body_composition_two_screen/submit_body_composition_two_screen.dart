@@ -1,0 +1,27 @@
+import 'package:flutter/material.dart';import 'package:flutter_svg_provider/flutter_svg_provider.dart' as fs;import 'package:gaiadhiwise/core/app_export.dart';import 'package:gaiadhiwise/widgets/app_bar/custom_app_bar.dart';import 'package:gaiadhiwise/widgets/custom_outlined_button.dart';import 'package:gaiadhiwise/widgets/custom_text_form_field.dart';
+// ignore_for_file: must_be_immutable
+class SubmitBodyCompositionTwoScreen extends StatelessWidget {SubmitBodyCompositionTwoScreen({Key? key}) : super(key: key);
+
+TextEditingController editTextController = TextEditingController();
+
+TextEditingController editTextController1 = TextEditingController();
+
+TextEditingController timeController = TextEditingController();
+
+@override Widget build(BuildContext context) { return SafeArea(child: Scaffold(resizeToAvoidBottomInset: false, body: SizedBox(width: double.maxFinite, child: Column(children: [_buildStack1(context), Container(padding: EdgeInsets.symmetric(horizontal: 44.h, vertical: 24.v), child: Column(children: [CustomImageView(imagePath: ImageConstant.imgVwhJrbeedWhat, height: 122.v, width: 181.h, radius: BorderRadius.circular(7.h)), SizedBox(height: 24.v), _buildSystolicPressure(context), SizedBox(height: 13.v), _buildDiastolicPressure(context), SizedBox(height: 13.v), _buildDateOfSubmission(context), SizedBox(height: 13.v), _buildTimeOfSubmission(context), SizedBox(height: 40.v), CustomOutlinedButton(text: "Submit Data", onPressed: () {onTapSubmitData(context);}), SizedBox(height: 5.v)]))])))); } 
+/// Section Widget
+Widget _buildStack1(BuildContext context) { return SizedBox(height: 172.v, width: double.maxFinite, child: Stack(alignment: Alignment.bottomCenter, children: [Align(alignment: Alignment.topCenter, child: Container(padding: EdgeInsets.symmetric(vertical: 26.v), decoration: BoxDecoration(image: DecorationImage(image: fs.Svg(ImageConstant.imgGroup56), fit: BoxFit.cover)), child: Column(mainAxisSize: MainAxisSize.min, children: [SizedBox(height: 56.v), CustomAppBar(height: 24.v, leadingWidth: double.maxFinite, leading: Container(height: 14.adaptSize, width: 14.adaptSize, margin: EdgeInsets.fromLTRB(29.h, 5.v, 350.h, 5.v), child: Stack(alignment: Alignment.centerLeft, children: [CustomImageView(imagePath: ImageConstant.imgVector, height: 2.v, width: 14.h, alignment: Alignment.bottomCenter, margin: EdgeInsets.only(top: 7.v, bottom: 5.v)), CustomImageView(imagePath: ImageConstant.imgVectorWhiteA700, height: 14.v, width: 7.h, alignment: Alignment.centerLeft, margin: EdgeInsets.only(right: 7.h), onTap: () {onTapImgVector(context);})])))]))), Align(alignment: Alignment.bottomCenter, child: Container(margin: EdgeInsets.symmetric(horizontal: 41.h), padding: EdgeInsets.symmetric(horizontal: 58.h, vertical: 10.v), decoration: BoxDecoration(borderRadius: BorderRadiusStyle.roundedBorder10), child: Column(mainAxisSize: MainAxisSize.min, mainAxisAlignment: MainAxisAlignment.end, children: [SizedBox(height: 7.v), Text("Blood Pressure", style: CustomTextStyles.titleMedium18), SizedBox(width: 193.h, child: Text("Kindly enter your blood pressure measurement.", maxLines: 2, overflow: TextOverflow.ellipsis, textAlign: TextAlign.center, style: CustomTextStyles.bodySmallGray60001))])))])); } 
+/// Section Widget
+Widget _buildSystolicPressure(BuildContext context) { return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text("Systolic Pressure", style: CustomTextStyles.bodySmallGray80012), SizedBox(height: 1.v), CustomTextFormField(controller: editTextController)]); } 
+/// Section Widget
+Widget _buildDiastolicPressure(BuildContext context) { return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text("Diastolic Pressure", style: CustomTextStyles.bodySmallGray80012), SizedBox(height: 2.v), CustomTextFormField(controller: editTextController1)]); } 
+/// Section Widget
+Widget _buildDateOfSubmission(BuildContext context) { return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text("Date of submission", style: CustomTextStyles.bodySmallGray80012), SizedBox(height: 2.v), Container(padding: EdgeInsets.symmetric(horizontal: 9.h, vertical: 8.v), decoration: AppDecoration.outlineGray.copyWith(borderRadius: BorderRadiusStyle.roundedBorder6), child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Padding(padding: EdgeInsets.only(left: 4.h), child: Text("01/12/2023", style: CustomTextStyles.bodyMediumGray800)), CustomImageView(imagePath: ImageConstant.imgCalendar11, height: 20.adaptSize, width: 20.adaptSize)]))]); } 
+/// Section Widget
+Widget _buildTimeOfSubmission(BuildContext context) { return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text("Time of submission", style: CustomTextStyles.bodySmallGray80012), SizedBox(height: 2.v), CustomTextFormField(controller: timeController, hintText: "6:28 pm", textInputAction: TextInputAction.done, suffix: Container(margin: EdgeInsets.fromLTRB(30.h, 11.v, 10.h, 9.v), child: CustomImageView(imagePath: ImageConstant.imgClock1, height: 20.adaptSize, width: 20.adaptSize)), suffixConstraints: BoxConstraints(maxHeight: 40.v), contentPadding: EdgeInsets.only(left: 14.h, top: 9.v, bottom: 9.v))]); } 
+
+/// Navigates back to the previous screen.
+onTapImgVector(BuildContext context) { Navigator.pop(context); } 
+/// Navigates to the dailyContainer1Screen when the action is triggered.
+onTapSubmitData(BuildContext context) { Navigator.pushNamed(context, AppRoutes.dailyContainer1Screen); } 
+ }

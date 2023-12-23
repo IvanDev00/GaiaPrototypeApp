@@ -1,0 +1,8 @@
+import '../community_board_three_screen/widgets/cardiocomponent_item_widget.dart';import 'package:flutter/material.dart';import 'package:gaiadhiwise/core/app_export.dart';import 'package:gaiadhiwise/widgets/app_bar/appbar_leading_image.dart';import 'package:gaiadhiwise/widgets/app_bar/appbar_subtitle.dart';import 'package:gaiadhiwise/widgets/app_bar/custom_app_bar.dart';class CommunityBoardThreeScreen extends StatelessWidget {const CommunityBoardThreeScreen({Key? key}) : super(key: key);
+
+@override Widget build(BuildContext context) { return SafeArea(child: Scaffold(appBar: _buildAppBar(context), body: Container(width: double.maxFinite, padding: EdgeInsets.symmetric(horizontal: 24.h, vertical: 21.v), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text("Workout List", style: theme.textTheme.titleMedium), SizedBox(height: 14.v), GridView.builder(shrinkWrap: true, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(mainAxisExtent: 135.v, crossAxisCount: 2, mainAxisSpacing: 33.h, crossAxisSpacing: 33.h), physics: NeverScrollableScrollPhysics(), itemCount: 5, itemBuilder: (context, index) {return CardiocomponentItemWidget(onTapImgCardioImage: () {onTapImgCardioImage(context);});})])))); } 
+/// Section Widget
+PreferredSizeWidget _buildAppBar(BuildContext context) { return CustomAppBar(leadingWidth: 48.h, leading: AppbarLeadingImage(imagePath: ImageConstant.imgArrowDown, margin: EdgeInsets.only(left: 24.h, top: 38.v, bottom: 36.v)), centerTitle: true, title: AppbarSubtitle(text: "Library of Movements"), styleType: Style.bgStyle_2); } 
+/// Navigates to the moreOneScreen when the action is triggered.
+onTapImgCardioImage(BuildContext context) { Navigator.pushNamed(context, AppRoutes.moreOneScreen); } 
+ }
